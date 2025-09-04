@@ -14,3 +14,5 @@
 
 ## Étapes immédiates
 - Démarrer par le module data-gen (structure et conventions), guidé pas à pas.
+# Sonfolio — Contexte Projet (minimal)
+<!-- SPDX-License-Identifier: GPL-3.0-or-later -->
