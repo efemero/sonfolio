@@ -1,0 +1,18 @@
+line-length = 100
+target-version = "py312"
+
+[lint]
+select = [
+  "F",   # Pyflakes
+  "E", "W",  # pycodestyle
+  "I",  # isort
+  "B",  # flake8-bugbear
+  "UP", # pyupgrade
+  "ISC" # flake8-implicit-str-concat (interdit concaténation implicite)
+]
+ignore = [
+  "ISC003", # autoriser concaténation explicite avec '+' pour éviter l'implicite
+]
+
+[lint.isort]
+known-first-party = ["data_gen", "sonfolio_shared"]

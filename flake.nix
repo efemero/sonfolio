@@ -15,12 +15,18 @@
           packages = [
             pkgs.python312
             pkgs.uv
+            pkgs.python312Packages.python-ly
+            pkgs.python312Packages.pydantic
+            pkgs.python312Packages.tyro
+            pkgs.ruff
+            pkgs.mypy
           ];
 
           shellHook = ''
             export PYTHONUTF8=1
             export PIP_DISABLE_PIP_VERSION_CHECK=1
             echo "Dev shell ready → $(python --version 2>/dev/null || true), uv $(uv --version 2>/dev/null || true)"
+            echo "Tools: ruff $(ruff --version 2>/dev/null || true), mypy $(mypy --version 2>/dev/null || true)"
           '';
         };
       });

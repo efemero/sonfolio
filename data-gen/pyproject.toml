@@ -6,7 +6,12 @@ version = "0.1.0"
 description = "Generate training datasets for sonfolio"
 readme = "README.md"
 requires-python = ">=3.12"
-dependencies = []
+dependencies = [
+    "python-ly>=0.9.9",
+    "music21>=8.3",
+    "pydantic>=2.6",
+    "tyro>=0.8.4",
+]
 
 [project.scripts]
 data-gen = "data_gen.cli:main"

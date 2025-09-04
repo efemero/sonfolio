@@ -14,5 +14,7 @@
 
 ## Étapes immédiates
 - Démarrer par le module data-gen (structure et conventions), guidé pas à pas.
+# Conventions de développement
+- Toujours lancer un lint statique sur tout code généré avant de l’insérer dans les fichiers (ex: vérifier types `| None`/`list[...]`, éviter concaténations implicites de chaînes, imports inutiles).
 # Sonfolio — Contexte Projet (minimal)
 <!-- SPDX-License-Identifier: GPL-3.0-or-later -->
