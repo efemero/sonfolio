@@ -1,0 +1,14 @@
+[project]
+name = "data-gen"
+version = "0.1.0"
+description = "Generate training datasets for sonfolio"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = []
+
+[project.scripts]
+data-gen = "data_gen.cli:main"
+
+[build-system]
+requires = ["hatchling>=1.18"]
+build-backend = "hatchling.build"
