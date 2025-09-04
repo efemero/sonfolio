@@ -11,6 +11,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 from __future__ import annotations
 
 from dataclasses import dataclass
+from typing import Annotated
 
 import tyro
 
@@ -23,7 +24,7 @@ class Tokenize:
     `nederlands(a,b,c,d,e,f,g)` normalisé en amont; lecture prévue via python-ly.
     """
 
-    input: str | None = None  # placeholder: chemin ou texte (non utilisé)
+    text: Annotated[str, tyro.conf.Positional]  # texte LilyPond (nederlands)
     output: str | None = None  # placeholder: chemin de sortie (non utilisé)
     verbose: int = 0  # placeholder
 
@@ -49,10 +50,11 @@ def main() -> None:
     cmd = tyro.cli(Command, description=description)
 
     if isinstance(cmd, Tokenize):
-        print(
-            "[tokenize] Squelette: aucune action réalisée. " +
-            "Les modèles se trouvent dans data_gen.tokenizer."
-        )
+        from .tokenizer import tokenize
+
+        print("[tokenize] Début — impression debug brute de python-ly…")
+        _ = tokenize(cmd.text)
+        print("[tokenize] Fin — (structure interne encore vide).")
         return
     if isinstance(cmd, About):
         print(

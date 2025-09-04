@@ -127,6 +127,36 @@ def detokenize_to_nederlands(result: TokenizationResult) -> str:  # placeholder
     return ""
 
 
+def tokenize(text: str) -> TokenizationResult:
+    """Parse un texte LilyPond enrobé et affiche le dump python-ly.
+
+    - Enrobage: \\language "nederlands" \relative c' { <text> }
+    - Parcours: ly.music.document(ly.document.Document(snippet))
+    - Sortie: impression de `dump()` brute (aucune transformation pour l’instant).
+    """
+
+    snippet = (
+        "\\language \"nederlands\" "
+        "\\relative c' { " + text + " }"
+    )
+
+    try:
+        import ly.document
+        import ly.music
+
+        doc = ly.document.Document(snippet)
+        music = ly.music.document(doc)
+        try:
+            print(music.dump())
+        except Exception:
+            # Certaines versions exposent dump() via items; fallback minimal
+            print(music)
+    except Exception as exc:
+        print(f"[debug] Échec lecture python-ly: {exc}")
+
+    return TokenizationResult()
+
+
 __all__ = [
     "PitchModel",
     "DurationModel",
@@ -136,6 +166,6 @@ __all__ = [
     "TimeSignatureModel",
     "Event",
     "TokenizationResult",
-    "tokenize_nederlands",
+    "tokenize",
     "detokenize_to_nederlands",
 ]

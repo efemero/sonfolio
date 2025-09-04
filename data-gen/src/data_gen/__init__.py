@@ -13,7 +13,7 @@ from .tokenizer import (
     TimeSignatureModel,
     TokenizationResult,
     detokenize_to_nederlands,
-    tokenize_nederlands,
+    tokenize,
 )
 
 __all__ = [
@@ -25,6 +25,6 @@ __all__ = [
     "TimeSignatureModel",
     "Event",
     "TokenizationResult",
-    "tokenize_nederlands",
+    "tokenize",
     "detokenize_to_nederlands",
 ]

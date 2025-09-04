@@ -15,9 +15,6 @@
           packages = [
             pkgs.python312
             pkgs.uv
-            pkgs.python312Packages.python-ly
-            pkgs.python312Packages.pydantic
-            pkgs.python312Packages.tyro
             pkgs.ruff
             pkgs.mypy
           ];
